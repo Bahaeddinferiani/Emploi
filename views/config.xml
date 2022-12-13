@@ -1,0 +1,50 @@
+<odoo>
+    <record model="ir.ui.view" id="config_list">
+        <field name="name">config list</field>
+        <field name="model">publication.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="Config"/>
+                <field name="Region"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="config_list_form">
+        <field name="name">config list form</field>
+        <field name="model">publication.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+
+                        <field name="Config"/>
+                        <field name="Region"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="config_listkanba">
+        <field name="name">config list kanban</field>
+        <field name="model">publication.config</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="Config"/>
+
+            </kanban>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="config_action_window">
+        <field name="name">Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">publication.config</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <menuitem name="Configuration" id="config_root" parent="publication.root" sequence="1"
+              action="config_action_window"/>
+
+</odoo>

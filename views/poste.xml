@@ -1,0 +1,55 @@
+<odoo>
+    <record model="ir.ui.view" id="publication.list">
+        <field name="name">publication list</field>
+        <field name="model">publication.postes</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="Nom"/>
+                <field name="Publicateur"/>
+                <field name="datepub"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="publication.list_form">
+        <field name="name">publication list form</field>
+        <field name="model">publication.postes</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="Config"/>
+                        <field name="Nom"/>
+
+                        <field name="Publicateur"/>
+                        <field name="datepub"/>
+                        <field name="Lien"/>
+                        <field name="desc"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="publication.listkanba">
+        <field name="name">publication list kanban</field>
+        <field name="model">publication.postes</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="Nom"/>
+                <field name="Publicateur"/>
+                <field name="datepub"/>
+            </kanban>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="publication.action_window">
+        <field name="name">Postes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">publication.postes</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <menuitem name="Publications" id="publication.root" sequence="1"/>
+    <menuitem name="Postes" id="poste_root" parent="publication.root" sequence="1" action="publication.action_window"/>
+
+</odoo>
